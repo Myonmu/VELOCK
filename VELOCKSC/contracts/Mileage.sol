@@ -11,12 +11,13 @@ contract Mileage {
     //function Mileage() public{
      //owner=msg.sender;
     //}
-    function storeMileage(uint mileage, uint timestamp) public{
+    function storeMileage(uint mileage, uint timestamp) public returns(address){
         address payable vehicleIdentity = msg.sender;
         mileageEntries[vehicleIdentity].push(MileageEntry({
         mileageValue: mileage,
         timestamp: timestamp
     }));
+        return vehicleIdentity;
     }
 
     function getMileageByAddress(address target) public view
