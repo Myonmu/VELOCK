@@ -48,6 +48,7 @@ App = {
 //Main body of the script
 //TODO: Convert this script so that it does not need a html page to function
 App.init().then(function(){
+
   //TODO: Add sleep function
   var day = new Date();
   var i = 0;

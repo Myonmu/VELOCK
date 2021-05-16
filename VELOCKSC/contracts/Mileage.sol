@@ -20,15 +20,23 @@ contract Mileage {
         return vehicleIdentity;
     }
 
-    function getMileageByAddress(address target) public view
-    returns(uint[] memory, uint[] memory){
-        uint[] memory mileage = new uint[](mileageEntries[target].length);
-        uint[] memory timestamp = new uint[](mileageEntries[target].length);
-        for(uint i = 0; i < mileageEntries[target].length;i++){
-            MileageEntry storage entry = mileageEntries[target][i];
-            mileage[i] = entry.mileageValue;
-            timestamp[i] = entry.timestamp;
-        }
-        return (mileage,timestamp);
+    function getMileage(address target,uint index) public view
+    returns(uint mileage){
+        MileageEntry storage entry = mileageEntries[target][index];
+        uint mileage = entry.mileageValue;
+        return mileage;
+    }
+
+    function getTimestamp(address target,uint index) public view
+    returns(uint timestamp){
+        MileageEntry storage entry = mileageEntries[target][index];
+        uint timestamp = entry.timestamp;
+        return timestamp;
+    }
+
+    function getEntryCount(address target) public view
+    returns(uint count){
+        uint count = mileageEntries[target].length;
+        return count;
     }
 }
