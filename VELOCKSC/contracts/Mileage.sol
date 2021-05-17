@@ -39,4 +39,22 @@ contract Mileage {
         uint count = mileageEntries[target].length;
         return count;
     }
+
+    function getMileageArray(address target) public view returns(uint[] memory){
+        uint[] memory mileage = new uint[](mileageEntries[target].length);
+        for(uint i = 0; i<mileageEntries[target].length;i++){
+        MileageEntry storage entry = mileageEntries[target][i];
+        mileage[i]=entry.mileageValue;
+        }
+        return mileage;
+    }
+
+    function getTimestampArray(address target) public view returns(uint[] memory){
+        uint[] memory stamp = new uint[](mileageEntries[target].length);
+        for(uint i = 0; i<mileageEntries[target].length;i++){
+            MileageEntry storage entry = mileageEntries[target][i];
+            stamp[i]=entry.timestamp;
+        }
+        return stamp;
+    }
 }

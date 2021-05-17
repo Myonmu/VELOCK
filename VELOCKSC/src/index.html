@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <title>Pete's Pet Shop</title>
+    <title>Mileage Search</title>
 
     <!-- Bootstrap -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -18,7 +18,19 @@
     <![endif]-->
   </head>
   <body>
+  <label for="addr">Address</label><input id="addr"><button id="submit">Submit</button>
     <div id="data">Test Data</div>
+    <table class="table">
+      <thead>
+      <tr>
+        <th scope="col">No.</th>
+        <th scope="col">Mileage</th>
+        <th scope="col">Timestamp</th>
+      </tr>
+      </thead>
+      <tbody id="table-content">
+      </tbody>
+    </table>
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
