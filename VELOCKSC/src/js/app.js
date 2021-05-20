@@ -30,7 +30,7 @@ App = {
         console.log(error);
       }
 
-      var account = accounts[0];
+      var account = accounts[2];
 
       App.contracts.Mileage.deployed().then(function(instance) {
         mileageInstance = instance;
