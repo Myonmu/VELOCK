@@ -27,7 +27,13 @@ App = {
 
     bindEvent: function(){
         $('#submit').click(function(){$(".entry").remove();
-            App.retrieveData($('#addr').val().toString())});
+            App.retrieveDataWithVIN($('#addr').val().toString())});
+    },
+
+    retrieveDataWithVIN: function(vin){
+       web3.eth.soliditySha3(vin).then(function(hashed){
+           App.retrieveData(web3.stringToHex(hashed))
+       });
     },
 
     retrieveData: function(address) {
@@ -74,8 +80,5 @@ $(function() {
     $(window).load(function() {
         App.init();
         App.bindEvent();
-        //TODO Replace with proper address
-        //App.retrieveData("0xbCC11D2Ae766E521A0d8D8Eab62c8e7CF8CD4b2b");
-
     });
 });

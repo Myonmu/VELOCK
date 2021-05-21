@@ -10,10 +10,9 @@ contract Mileage {
     //*
     mapping(bytes32 => address) public mappedVinToKeyEntries;
     address owner;
-    bytes32 Vin;
-    //function Mileage() public{
-     //owner=msg.sender;
-    //}
+    constructor() public{
+     owner=msg.sender;
+    }
     function storeMileage(uint mileage, uint timestamp) public returns(address){
         address payable vehicleIdentity = msg.sender;
         mileageEntries[vehicleIdentity].push(MileageEntry({
@@ -21,20 +20,6 @@ contract Mileage {
         timestamp: timestamp
     }));
         return vehicleIdentity;
-    }
-
-    function getMileage(address target,uint index) public view
-    returns(uint mileage){
-        MileageEntry storage entry = mileageEntries[target][index];
-        uint mileage = entry.mileageValue;
-        return mileage;
-    }
-
-    function getTimestamp(address target,uint index) public view
-    returns(uint timestamp){
-        MileageEntry storage entry = mileageEntries[target][index];
-        uint timestamp = entry.timestamp;
-        return timestamp;
     }
 
     function getEntryCount(address target) public view
@@ -74,26 +59,17 @@ contract Mileage {
         require(owner == msg.sender);
         mappedVinToKeyEntries[hashedVin] == address(0x0);
     }
-    //
-    string Vin = "FRrenault123";
 
-    function stringToBytes32(string memory source) view internal returns(bytes32 result){
-        assembly{
-            result := mload(add(source,32))
-        }
-    }
-
-    function getVin() public view returns(bytes32 ){
-
-        return stringToBytes32(Vin);
+    function getAddress(bytes32 hashedVin) public view returns(address){
+        return mappedVinToKeyEntries[hashedVin];
     }
 
 }
 
-    }
 
 
 
 
 
-}
+
+
