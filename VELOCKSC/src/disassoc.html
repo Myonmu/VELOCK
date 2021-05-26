@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <title>Mileage Search</title>
+    <title>Disassociate</title>
 
     <!-- Bootstrap -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -23,35 +23,27 @@
 <div class="container pt-5">
     <div class="card bg-light p-5">
         <div class="d-flex justify-content-center">
-            <h1 class="bold">Mileage Search</h1>
+            <div><h1 class="bold">Unbind VIN and Address</h1></div>
         </div>
-        <label for="addr">VIN</label>
+        <div class="d-flex justify-content-center">
+            <div id="data" class="text-danger"></div>
+        </div>
+        <label for="vin">VIN</label>
 
         <div class="container mb-5">
+            <input id="vin" class="col-11">
+        </div>
+        <label for="addr">Ethereum address</label>
+        <div class="container mb-5">
             <input id="addr" class="col-11">
-            <button class="btn-success col-1" id="submit">Submit</button>
         </div>
-        <div id="data">Test Data</div>
-        <table class="table table-bordered">
-            <thead class="thead-dark">
-            <tr>
-                <th scope="col">No.</th>
-                <th scope="col">Mileage</th>
-                <th scope="col">Timestamp</th>
-            </tr>
-            </thead>
-            <tbody id="table-content">
-            </tbody>
-        </table>
-        <div>
-            <canvas id="myChart"></canvas>
-        </div>
+        <button class="btn-success col-1" id="submit">Submit</button>
+
     </div>
 </div>
 <div class="container">
     <div class="card bg-light p-5">
-        <button class="btn-block btn-dark" onclick="location.href='assoc.html'">Bind VIN and address</button>
-        <button class="btn-block btn-dark" onclick="location.href='disassoc.html'">Unbind VIN and address</button>
+        <button class="btn-block btn-dark" onclick="location.href='index.html'">Back to search</button>
     </div>
 </div>
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
@@ -60,7 +52,6 @@
 <script src="js/bootstrap.min.js"></script>
 <script src="js/web3.min.js"></script>
 <script src="js/truffle-contract.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-<script src="js/queryMileage.js"></script>
+<script src="js/disassoc.js"></script>
 </body>
 </html>
